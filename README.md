@@ -1,6 +1,8 @@
 # regsrv32
 
-regsrv32 applocker bypass - arbitrary shellcode payload delivery via cobalt strike 
+regsrv32 applocker bypass - arbitrary shellcode payload delivery via cobalt strike.  
+
+see the companion blog post at http://atropineal.com/2017/05/20/playing-with-the-regsrv32-applocker-bypass/
 
 files:
 
