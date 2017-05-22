@@ -1,13 +1,13 @@
-# regsrv32
+# regsvr32
 
-regsrv32 applocker bypass - arbitrary shellcode payload delivery via cobalt strike.  
+regsvr32 applocker bypass - arbitrary shellcode payload delivery via cobalt strike.  
 
 see the companion blog post at http://atropineal.com/2017/05/20/playing-with-the-regsrv32-applocker-bypass/
 
 files:
 
-* regsrv32.cna: a cobalt strike aggressor script.  give it some shellcode and it'll host the file and supply you with a one-liner to execute on-target
-* regsrv32.sct: a template that the aggressor script stuffs the shellcode into before hosting it for download via the one-liner
+* regsvr32.cna: a cobalt strike aggressor script.  give it some shellcode and it'll host the file and supply you with a one-liner to execute on-target
+* regsvr32.sct: a template that the aggressor script stuffs the shellcode into before hosting it for download via the one-liner
 
 example shellcode to use (point it at metasploit, armitage or cobalt strike listeners):
 
